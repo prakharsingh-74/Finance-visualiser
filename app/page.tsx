@@ -148,7 +148,7 @@ export default function Home() {
           {showForm && (
             <div className="xl:col-span-1 animate-slide-up">
               <TransactionForm
-                transaction={editingTransaction}
+                transaction={editingTransaction ?? undefined}
                 onSubmit={handleTransactionSubmit}
                 onCancel={handleCancelEdit}
               />
