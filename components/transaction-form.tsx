@@ -25,11 +25,11 @@ export function TransactionForm({ transaction, onSubmit, onCancel }: Transaction
     type: transaction?.type || 'expense',
   });
 
-  const [errors, setErrors] = useState<Partial<TransactionFormData>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof TransactionFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = (): boolean => {
-    const newErrors: Partial<TransactionFormData> = {};
+    const newErrors: Partial<Record<keyof TransactionFormData, string>> = {};
 
     if (!formData.amount || isNaN(Number(formData.amount)) || Number(formData.amount) <= 0) {
       newErrors.amount = 'Please enter a valid amount greater than 0';
